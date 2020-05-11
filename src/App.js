@@ -1,11 +1,13 @@
 import React from 'react'
-import ReactBpmn from 'react-bpmn';
+//import ReactBpmn from 'react-bpmn';
+import ExternalLoadedBpmn from './ExternalLoadedBpmn'
+import axios from 'axios'
 
 function App(){
     function onShown() {
         console.log('diagram shown');
       }
-     
+      
       function onLoading() {
         console.log('diagram loading');
       }
@@ -15,13 +17,16 @@ function App(){
       }
      
       return (
-        <ReactBpmn
-          url="/public/diagram.bpmn"
+        <div>
+        <ExternalLoadedBpmn
+          url="http://localhost:5000/bpmnio"
           onShown={ onShown }
           onLoading={ onLoading }
           onError={ onError }
         />
+
+        </div>
       );
-}
+} 
 
 export default App
